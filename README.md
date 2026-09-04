@@ -1,1 +1,1 @@
-My goal for this classem is to lear the basics of computer programming. Since i have no previous experience, im willing to learn, practice, improve throughout the course, and develop new skills that can help me in my major.
+My goal for this class is to lear the basics of computer programming. Since i have no previous experience, im willing to learn, practice, improve throughout the course, and develop new skills that can help me in my major.
