@@ -1,3 +1,7 @@
+/*
+Name: Emily Chavez
+*/
+
 function setup() {
   createCanvas(600, 700);
 }
