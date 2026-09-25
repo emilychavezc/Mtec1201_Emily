@@ -1,4 +1,14 @@
-/*Name: Emily Chavez
+/*
+Name: Emily Chavez
+
+Title: static shapes
+
+I would lke to explore how to put figures into motion and make them more 
+interesting through movement. This first sketch connect to that idea because,
+at firt, it may look simple or not interesting. However, my goal is to
+eventually add movement to the shapes and see how their interaction can
+change the wy the sketch looks and feels.
+
 */
 
 function setup() {
@@ -41,8 +51,5 @@ circle(650, 600, 8);
  stroke(15);
  strokeWeight(10);
 ellipse(540,610,450,450);
-
-
- 
 
 }
