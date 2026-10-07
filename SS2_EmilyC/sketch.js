@@ -1,3 +1,9 @@
+/*Emily Chavez
+// Title: Moving Circle
+I want to explore putting simple forms into motion. This sketch connects to my theme 
+by making the circle and one of the small forms inside it move.
+Instructions: Move the mouse to move the circle and click the mouse to move the dot*/
+
 let circleX = 200;
 let circleY = 200;
 let dotMove = 0;
