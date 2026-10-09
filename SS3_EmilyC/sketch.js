@@ -1,3 +1,9 @@
+//Emily C
+//Stickman singing in a theatre
+//Press mouse to open the curtains, the stickman appears and 
+//Press any key to make him sing.
+
+
 const canvasSize = 600;
 let mouthSize = 10;
 let micX = 350;
