@@ -11,16 +11,14 @@
 // bouncing between walls 
 
 let brickWall;
-let font;
 
 
 function preload() {
-  brickWall = loadImage("images/brickwall.jpg");
-  font = loadFont("fonts/Press_Start_2P");
+  brickWall = loadImage("images/wall.jpg");
 }
 
 function setup() {
-  createCanvas(600, 1067);
+  createCanvas(600, 800);
 }
 
 function draw() {
@@ -28,21 +26,18 @@ function draw() {
 
   // Line follows the mouse
   let lineX = constrain(mouseX, 40, width - 40);
-  let lineY = constrain(mouseY, 0, height);
+  let lineY = constrain(mouseY, 2, height - 2);
 
-  stroke(255);
-  strokeWeight(3);
+  stroke(0,0,0);
+  strokeWeight(5);
   line(lineX - 40, lineY, lineX + 40, lineY);
 
   // Start text
-  fill(255);
+  fill(255, 0, 0);
   noStroke();
   textAlign(CENTER, CENTER);
-  textFont(font);
+  textFont("Impact");
 
   textSize(32);
-  text("START", width / 2, 560);
-
-  textSize(18);
-  text("PRESS ENTER TO START", width / 2, 600);
+  text("PRESS ENTER TO START",600/2,800/2);
 }
