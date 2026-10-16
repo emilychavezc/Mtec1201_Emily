@@ -11,6 +11,12 @@
 // bouncing between walls 
 
 let brickWall;
+let gameStarted = false;
+let gameOver = false;
+let ballX = 300;
+let ballY = 0;
+let ballSpeed = 3;
+let ballSize = 30;
 
 
 
@@ -43,12 +49,12 @@ function draw() {
     lineY = height - 2;
   }
 
-  
   stroke(0,0,0);
   strokeWeight(5);
   line(lineX - 40, lineY, lineX + 40, lineY);
 
   // Start text
+  if (gameStarted == false) {
   fill(255, 0, 0);
   noStroke();
   textAlign(CENTER, CENTER);
@@ -56,4 +62,32 @@ function draw() {
 
   textSize(32);
   text("PRESS ENTER TO START",600/2,800/2);
+  }
+
+  // Ball falls when game starts
+  if (gameStarted == true && gameOver == false) {
+    ballY = ballY + ballSpeed;
+
+    fill(255, 0, 0);
+    noStroke();
+    circle(ballX, ballY, ballSize);
+    // Check if the ball reaches the bottom
+  if (ballY >= height - ballSize / 2) {
+    gameOver = true;
+  }
+ }
+
+   // Game Over screen
+   if (gameOver == true) {
+    fill(255, 0, 0);
+   noStroke();
+   textAlign(CENTER, CENTER);
+   textSize(40);
+   text("GAME OVER", width / 2, height / 2);
+ }
+}
+function keyPressed() {
+  if (keyCode == ENTER) {
+    gameStarted = true;
+  }
 }
