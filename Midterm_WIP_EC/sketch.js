@@ -13,6 +13,7 @@
 let brickWall;
 
 
+
 function preload() {
   brickWall = loadImage("images/wall.jpg");
 }
@@ -25,9 +26,24 @@ function draw() {
   image(brickWall, 0, 0, width, height);
 
   // Line follows the mouse
-  let lineX = constrain(mouseX, 40, width - 40);
-  let lineY = constrain(mouseY, 2, height - 2);
+  let lineX = mouseX;
+  let lineY = mouseY;
 
+  // Keep the line inside the left and right edges
+  if (lineX < 40) {
+    lineX = 40;
+  } else if (lineX > width - 40) {
+    lineX = width - 40;
+  }
+
+  // Keep the line inside the top and bottom edges
+  if (lineY < 2) {
+    lineY = 2;
+  } else if (lineY > height - 2) {
+    lineY = height - 2;
+  }
+
+  
   stroke(0,0,0);
   strokeWeight(5);
   line(lineX - 40, lineY, lineX + 40, lineY);
