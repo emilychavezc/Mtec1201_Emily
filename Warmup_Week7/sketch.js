@@ -9,7 +9,7 @@ function setup() {
 }
 
 function draw() {
-  background(210);
+  background(128,0,32);
 
   if (currentScene === 0) {
     drawScene0();
@@ -28,8 +28,10 @@ function mousePressed() {
 
 function drawScene0() {
   text("GOOD MORNING", 250, 250);
+  textFont("Times New Roman")
 }
 
 function drawScene1() {
   text("GOOD NIGHT", 250, 250);
+  textFont("Courier New")
 }
