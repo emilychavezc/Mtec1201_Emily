@@ -16,7 +16,7 @@ let font;
 
 function preload() {
   brickWall = loadImage("images/brickwall.jpg");
-  font = loadFont("fonts/PressStart2P-Regular.ttf");
+  font = loadFont("fonts/Press_Start_2P");
 }
 
 function setup() {
