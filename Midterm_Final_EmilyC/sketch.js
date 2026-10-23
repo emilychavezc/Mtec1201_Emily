@@ -20,7 +20,7 @@ const LINE_MAX_X = 560;
 const LINE_Y = 700;
 
 function preload() {
-  brickWall = loadImage("image/wall.jpg");
+  brickWall = loadImage("image/background.png");
 }
 
 function setup() {
@@ -67,7 +67,7 @@ function drawLine() {
   }
 
   stroke(0, 0, 0);
-  strokeWeight(5);
+  strokeWeight(20);
   line(lineX - 40, lineY, lineX + 40, lineY);
 }
 
