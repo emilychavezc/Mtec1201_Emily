@@ -1,4 +1,4 @@
-//Emily Chavez - Midterm 
+//Emily Chavez - Midterm UPDATE
 //Game: Catch The ball!
 //Instructions: Press Enter to start the game. Move the mouse to catch the ball with the line.
 //If the ball falls below the line, the game is over. Press Space to reset the game.
@@ -22,6 +22,7 @@ const LINE_Y = 700;
 function preload() {
   brickWall = loadImage("image/background.png");
 }
+
 
 function setup() {
   createCanvas(600, 800);
@@ -48,7 +49,7 @@ function draw() {
 
 // Start screen
 function drawStartScreen() {
-  fill(255, 0, 0);
+  fill(0, 255, 255);
   noStroke();
   textFont("Impact");
   textSize(32);
@@ -66,8 +67,9 @@ function drawLine() {
     lineX = LINE_MAX_X;
   }
 
-  stroke(0, 0, 0);
-  strokeWeight(20);
+  // Line color 
+  stroke(0, 255, 255);
+  strokeWeight(5);
   line(lineX - 40, lineY, lineX + 40, lineY);
 }
 
@@ -82,15 +84,21 @@ function drawBall() {
   if (ballX + ballSize / 2 >= width) {
     ballX = width - ballSize / 2;
     ballSpeedX = -ballSpeedX;
+
+    increaseBallSpeed(); 
   } else if (ballX - ballSize / 2 <= 0) {
     ballX = ballSize / 2;
     ballSpeedX = -ballSpeedX;
+
+    increaseBallSpeed(); 
   }
 
   // Bounce off the top wall
   if (ballY - ballSize / 2 <= 0) {
     ballY = ballSize / 2;
     ballSpeedY = -ballSpeedY;
+
+    increaseBallSpeed(); //
   }
 
   // Check if the ball touches the line
@@ -112,9 +120,7 @@ function drawBall() {
     ballY = LINE_Y - ballSize / 2;
     ballSpeedY = -ballSpeedY;
 
-    // Increase speed after each catch
-    ballSpeedX = ballSpeedX * 2;
-    ballSpeedY = ballSpeedY * 2;
+    increaseBallSpeed(); // CHANGE 2
   }
 
   // Game over if the ball falls below the canvas
@@ -122,15 +128,35 @@ function drawBall() {
     gameOver = true;
   }
 
-  // Draw the ball
-  fill(255, 0, 0);
+  //Ball color 
+  fill(255, 255, 0);
   noStroke();
   circle(ballX, ballY, ballSize);
 }
 
+// Increase speed after every bounce
+function increaseBallSpeed() {
+
+  ballSpeedX = ballSpeedX * 1.05;
+  ballSpeedY = ballSpeedY * 1.05;
+
+  // Maximum speed to keep the game playable
+  if (ballSpeedX > 5) {
+    ballSpeedX = 5;
+  } else if (ballSpeedX < -5) {
+    ballSpeedX = -5;
+  }
+
+  if (ballSpeedY > 5) {
+    ballSpeedY = 5;
+  } else if (ballSpeedY < -5) {
+    ballSpeedY = -5;
+  }
+}
+
 // Game over screen
 function drawGameOver() {
-  fill(255, 0, 0);
+  fill(255);
   noStroke();
   textFont("Impact");
   textSize(40);
@@ -139,7 +165,7 @@ function drawGameOver() {
 
 // Reset message
 function drawResetScreen() {
-  fill(0, 0, 0);
+  fill(255, 255, 0);
   noStroke();
   textFont("Impact");
   textSize(20);
@@ -148,6 +174,7 @@ function drawResetScreen() {
 
 // Keyboard controls
 function keyPressed() {
+
   // Start with ENTER
   if (keyCode == ENTER && gameStarted == false && gameOver == false) {
     gameStarted = true;
